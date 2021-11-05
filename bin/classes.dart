@@ -5,6 +5,9 @@ void main(List<String> arguments) {
   print(iceland.getInfo());
   Car mercedes_benz = Car("Mercedes-Benz", "diamond black", 800, 44000);
   print(mercedes_benz.getInfo());
+  Student student = Student("John", "Cena", 2017);
+  print(student.getFullName());
+  print(student.getCourse());
 }
 
 
@@ -29,5 +32,26 @@ class Car {
   
   String getInfo(){
     return "Car's name is $name, color is $color, power is $power hp, it cost $price USD";
+  }
+}
+
+class User {
+  String? name;
+  String? surname;
+
+  User(this.name, this.surname);
+}
+
+class Student extends User {
+  int? enterYear;
+
+  Student(String name, String surname, this.enterYear): super(name,surname);
+
+  String getFullName(){
+    return "Student's fullname is $name $surname";
+  }
+
+  int getCourse(){
+    return 2021 - enterYear!;
   }
 }
